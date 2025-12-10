@@ -23,3 +23,7 @@ The PINN loss function minimizes the residual of the discretized Swing Equation:
 $$\epsilon = f_{t} + \frac{f_0 \Delta t}{2H} (P_{gen} - P_{load} - D(f_t - f_0)) - f_{t+1}$$
 
 Instead of being a fixed input, $H$ is learned via backpropagation to minimize this physics violation.
+
+## ⚠️ Implementation Note
+
+The synthetic training data includes a hard frequency clamp at [49 Hz, 51 Hz] to mimic grid controls. This introduces non-linearities (zero derivatives with non-zero power imbalance) that significantly impact the PINN's ability to converge on the true inertia value $H$.
