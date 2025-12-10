@@ -12,7 +12,7 @@ This repository implements a Physics-Informed Neural Network (PINN) to estimate 
 
 ## 📂 Code Structure
 
-* `data_processing.py`: Fetches generation data (ESIOS API), performs linear interpolation, and injects Gaussian noise ($\sigma=1\%$) for augmentation.
+* `Data gathering.ipynb`: Fetches generation data (ESIOS API), performs linear interpolation, and injects Gaussian noise ($\sigma=1\%$) for augmentation.
 * `synthetic_gen.py`: Solves the continuous damped Swing Equation to generate "Ground Truth" frequency labels.
 * `pinn_model.py`: Implements the MLP (5 layers, 50 neurons, Tanh) where Inertia ($H$) is a trainable variable updated via the physics residual.
-* `lstm_model.py`: Baseline RNN architecture (128 units + Dense layers)8.
+* `lstm_model.py`: Baseline RNN architecture (128 units + Dense layers).
