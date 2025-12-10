@@ -16,3 +16,10 @@ This repository implements a Physics-Informed Neural Network (PINN) to estimate 
 * `Synthetic data generation - Electrical grid frequency.ipynb`: Solves the continuous damped Swing Equation to generate "Ground Truth" frequency labels.
 * `pinn_model.ipynb`: Implements the MLP (5 layers, 50 neurons, Tanh) where Inertia ($H$) is a trainable variable updated via the physics residual.
 * `lstm_model.ipynb`: Baseline RNN architecture (128 units + Dense layers).
+
+## 🧮 Physics Constraint (PINN)
+The PINN loss function minimizes the residual of the discretized Swing Equation:
+
+$$\epsilon = f_{t} + \frac{f_0 \Delta t}{2H} (P_{gen} - P_{load} - D(f_t - f_0)) - f_{t+1}$$
+
+Instead of being a fixed input, $H$ is learned via backpropagation to minimize this physics violation.
